@@ -20,10 +20,12 @@ If everything worked as expected you should see a json response
 
 Gets --
 curl http://localhost:8080
-curl http://localhost:8080/car1
+curl http://localhost:8080/car/1
+curl http://localhost:8080/car/2
+
 
 Puts --
-curl http://localhost:8080/car5 -d "data=camry" -X PUT
+curl http://localhost:8080/car/5 -d "data=camry" -X PUT
 
 
 

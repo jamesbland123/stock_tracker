@@ -10,12 +10,14 @@ class Root(Resource):
     def get(self):
         return {'lost' : 'yes'} 
 
-api.add_resource(Root, '/')
 
+# Testing only, should not have
+# this in containers as they should be 
+# immutable
 CARS = {
-    'car1':'camry',
-    'car2':'rav4',
-    'car3':'4runner',
+    '1':'camry',
+    '2':'rav4',
+    '3':'4runner',
 }
 
 class Car(Resource):
@@ -25,8 +27,14 @@ class Car(Resource):
     def put(self, car_id):
         CARS[car_id] = request.form['data']
         return {car_id: CARS[car_id]}
-        
-api.add_resource(Car, '/<string:car_id>')        
+
+class Cars(Resource):
+    def get(self):
+        return CARS
+
+api.add_resource(Root, '/')        
+api.add_resource(Car, '/car/<car_id>') 
+api.add_resource(Cars, '/cars') 
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
