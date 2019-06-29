@@ -14,6 +14,16 @@ docker run -d -p 8080:80 flask_image
 
 Using your browser connect to http://localhost:80 or in Cloud9 preview
 
-If everything worked as expected you should see "¯\(◉‿◉)/¯"
+If everything worked as expected you should see a json response
+
+##testing
+
+Gets --
+curl http://localhost:8080
+curl http://localhost:8080/car1
+
+Puts --
+curl http://localhost:8080/car5 -d "data=camry" -X PUT
+
 
 
