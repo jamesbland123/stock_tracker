@@ -7,7 +7,7 @@ from resources.stocks import Stocks
 
 
 app = Flask(__name__)
-api = Api(app)
+api = Api(app, prefix="/api/v1")
 
 class Root(Resource):
     def get(self):
