@@ -19,13 +19,13 @@ If everything worked as expected you should see a json response
 ##testing
 
 Gets --
-curl http://localhost:8080
-curl http://localhost:8080/stock/1
-curl http://localhost:8080/stock/2
+curl http://localhost:8080/api/v1
+curl http://localhost:8080/api/v1/stock/1
+curl http://localhost:8080/api/v1/stock/2
 
 
 Puts --
-curl http://localhost:8080/stock/5 -d "data=WORK" -X PUT
+curl http://localhost:8080/api/v1/stock/5 -d "data=WORK" -X PUT
 
 
 
