@@ -27,5 +27,8 @@ curl http://localhost:8080/api/v1/stock/2
 Puts --
 curl http://localhost:8080/api/v1/stock/5 -d "data=WORK" -X PUT
 
+swagger UI
+browse to /api/vi/ui/  <- don't forget the trailing slash
+
 
 

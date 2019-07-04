@@ -1,21 +1,23 @@
-# app.py
+from flask import render_template
+import connexion
 
-from flask import Flask, request
-from flask_restful import Resource, Api
-from resources.stock import Stock
-from resources.stocks import Stocks
+# Create the application instance
+app = connexion.App(__name__, specification_dir='./')
 
+app.add_api('swagger.yml')
 
-app = Flask(__name__)
-api = Api(app, prefix="/api/v1")
+# Create a URL route in our application for "/"
+@app.route('/')
+def home():
+    """
+    This function just responds to the browser ULR
+    localhost:8080/
 
-class Root(Resource):
-    def get(self):
-        return {'lost' : 'yes'} 
+    :return:        the rendered template 'home.html'
+    """
+    return render_template('home.html')
 
-api.add_resource(Root, '/')        
-api.add_resource(Stock, '/stock/<ticker_id>') 
-api.add_resource(Stocks, '/stocks') 
-
+# If we're running in stand alone mode, run the application
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    #app.run(debug=True)
+    app.run(port=8080, debug=True)

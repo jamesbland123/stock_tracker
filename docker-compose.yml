@@ -13,6 +13,10 @@ services:
       - ./:/app
     ports:
       - "8080:80"
+    environment:
+      DB_HOST: db
+      DB_PASSWORD: password
+      DB_USER: root
     depends_on:
       db:
         condition: service_healthy  
