@@ -1,0 +1,88 @@
+swagger: "2.0"
+info:
+  description: swagger file for stocks tracking application
+  version: "1.0.0"
+  title: Stocks Tracking Application
+consumes:
+  - "application/json"
+produces:
+  - "application/json"
+
+basePath: "/api/v1"
+
+# Paths supported by the server application
+paths:
+  /stock:
+    get:
+      operationId: "stock.get"
+      tags:
+        - Stock
+      summary: "The stock data structure supported by the server application"
+      description: "Read a list of stock ticker symbols"
+      responses:
+        200:
+          description: "Successful read stock symbols"
+          schema:
+            type: "array"
+            items:
+              properties:
+                ticker_symbol:
+                  type: "string"
+                  
+    post:
+      operationId: stock.add_ticker_symbol
+      tags:
+        - Stock
+      summary: Add a stock symbol
+      description: Add a new stock symbol
+      parameters:
+        - name: ticker_symbol
+          in: body
+          description: Stock to add
+          required: True
+          schema:
+            type: object
+            properties:
+              ticker_symbol:
+                type: string
+                description: Stock ticker symbol
+      responses:
+        201:
+          description: Successfully added stock symbol
+          schema:
+            properties:
+              id:
+                type: string
+                description: Id of the stock symbol
+              ticker_symbol:
+                type: string
+                description: Ticker symbol
+              timestamp:
+                type: string
+                description: Creation/Update timestamp of the record
+                  
+  /stock/{ticker_symbol}:
+    get:
+      operationId: stock.get_ticker_symbol
+      tags:
+        - Stock
+      summary: Read a single stock symbol
+      description: Read a single stock symbol entry
+      parameters:
+        - name: ticker_symbol
+          in: path
+          description: Stock ticker symbol
+          type: string
+          required: True
+      responses:
+        200:
+          description: Successfully read ticker symbol
+          schema:
+            properties:
+              id:
+                type: string
+              ticker_symbol:
+                type: string
+              timestamp:
+                type: string                
+    
