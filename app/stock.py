@@ -1,6 +1,6 @@
 from flask import make_response, abort
-from config import db
-from models import Stock, StockSchema
+from .config import db
+from .models import Stock, StockSchema
 
 # Create a handler for our read (GET) people
 def get():
