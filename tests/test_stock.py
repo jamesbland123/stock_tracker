@@ -1,4 +1,4 @@
-from ..app.stock import get, get_ticker_symbol, add_ticker_symbol
+from app.stock import get, get_ticker_symbol, add_ticker_symbol
 
 def test_get():
     """
