@@ -5,6 +5,7 @@ chardet==3.0.4
 Click==7.0
 clickclick==1.2.2
 connexion==2.3.0
+coverage==4.5.3
 Flask==1.0.3
 flask-marshmallow==0.10.1
 Flask-SQLAlchemy==2.4.0
@@ -25,6 +26,7 @@ py==1.8.0
 PyMySQL==0.9.3
 pyparsing==2.4.0
 pytest==5.0.1
+pytest-cov==2.7.1
 PyYAML==5.1.1
 requests==2.22.0
 six==1.12.0

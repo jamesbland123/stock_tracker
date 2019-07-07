@@ -4,3 +4,5 @@
 export PYTHONPATH=../:../app
 cd tests
 pytest
+
+pytest --cov=app 
